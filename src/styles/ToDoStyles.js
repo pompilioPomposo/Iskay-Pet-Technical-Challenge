@@ -20,6 +20,7 @@ export const vStackStyles = {
 };
 
 export const titleTextStyles = {
+  maxWidth: '336px',
   fontSize: '16px',
   fontWeight: '600',
   lineHeight: '21.79px',
@@ -30,7 +31,7 @@ export const titleTextStyles = {
 };
 
 export const descriptionTextStyles = {
-  width: '308px',
+  maxWidth: '336px',
   fontSize: '12px',
   fontWeight: '400',
   lineHeight: '16.34px',

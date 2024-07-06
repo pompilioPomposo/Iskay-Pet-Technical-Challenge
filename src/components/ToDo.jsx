@@ -18,7 +18,7 @@ const ToDo = () => {
           <Text {...titleTextStyles}>Título tarea</Text>
           <Text {...descriptionTextStyles}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris, ac
-            elementum ultrices mauris. Cursus
+            elementum ultrices mauris. Cursus urna
           </Text>
         </VStack>
         <Box {...imageStyles}>

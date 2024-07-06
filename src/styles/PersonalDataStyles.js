@@ -10,6 +10,26 @@ export const cardStyles = {
 
 export const formControlStyles = {
   pb: '24px',
+  fontSize: '14px',
+  fontWeight: '400',
+  lineHeight: '19.07px',
+};
+
+export const labelStyles = {
+  color: '#4A4A4A',
+  fontSize: '14px',
+  fontWeight: '400',
+  lineHeight: '19.07px',
+};
+
+export const inputStyles = {
+  color: '#4A4A4A',
+  border: '1px solid #C9C9C9',
+  borderRadius: '3px',
+  _focus: {
+    borderColor: '#C9C9C9',
+    boxShadow: 'none',
+  },
 };
 
 export const buttonStyles = {

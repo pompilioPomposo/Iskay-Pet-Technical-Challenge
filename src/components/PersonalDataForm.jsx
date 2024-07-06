@@ -3,6 +3,8 @@ import { Card, FormControl, FormLabel, Input, Button } from '@chakra-ui/react';
 import {
   cardStyles,
   formControlStyles,
+  inputStyles,
+  labelStyles,
   buttonStyles,
 } from '../styles/PersonalDataStyles';
 
@@ -10,16 +12,16 @@ const PersonalDataForm = () => {
   return (
     <Card {...cardStyles}>
       <FormControl isRequired {...formControlStyles}>
-        <FormLabel>Nombre</FormLabel>
-        <Input placeholder='Nombre' />
+        <FormLabel {...labelStyles}>Nombre</FormLabel>
+        <Input placeholder='Nombre' {...inputStyles} />
       </FormControl>
       <FormControl isRequired {...formControlStyles}>
-        <FormLabel>Email</FormLabel>
-        <Input placeholder='Email' />
+        <FormLabel {...labelStyles}>Email</FormLabel>
+        <Input placeholder='Email' {...inputStyles} />
       </FormControl>
       <FormControl isRequired {...formControlStyles}>
-        <FormLabel>Teléfono</FormLabel>
-        <Input placeholder='Teléfono' />
+        <FormLabel {...labelStyles}>Teléfono</FormLabel>
+        <Input placeholder='Teléfono' {...inputStyles} />
       </FormControl>
       <Button {...buttonStyles}>Guardar</Button>
     </Card>
