@@ -2,14 +2,14 @@
 import React from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
 import MyTodos from './pages/MyTodos';
+import NavHeader from './components/NavHeader';
 
 function App() {
   return (
     <ChakraProvider>
       <div className='App'>
-        <header className='App-header'>
-          <MyTodos />
-        </header>
+        <NavHeader />
+        <MyTodos />
       </div>
     </ChakraProvider>
   );

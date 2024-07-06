@@ -14,7 +14,7 @@ const MyTodos = () => {
       px='17px'
     >
       <Text
-        pt='38px'
+        pt='88px'
         pb='20px'
         fontSize='20px'
         fontWeight='700'
