@@ -34,6 +34,9 @@ export const modalHeaderStyles = {
 
 export const modalCloseStyles = {
   pt: '1.5625rem',
+  _hover: {
+    background: '#FFFFFF',
+  },
 };
 
 export const formControlStyles = {
@@ -56,6 +59,10 @@ export const buttonStyles = {
   fontWeight: '600',
   lineHeight: '1.361875rem',
   gap: '0.625rem',
+  _hover: {
+    background: '#639605',
+    color: '#FFFFFF',
+  },
 };
 
 export const hstackStyles = {
@@ -63,10 +70,11 @@ export const hstackStyles = {
 };
 
 export const cancelButtonStyles = {
-  variant: 'ghost',
   height: '2.875rem',
   width: '45%',
   borderRadius: '0.3125rem',
+  background: '#FFFFFF',
+  color: '#333333',
   ms: '1.5rem',
   mb: '2.625rem',
   p: '0.75rem 0',
@@ -74,6 +82,10 @@ export const cancelButtonStyles = {
   fontWeight: '600',
   lineHeight: '1.361875rem',
   gap: '0.625rem',
+  _hover: {
+    background: '#FFFFFF',
+    color: '#333333',
+  },
 };
 
 export const saveButtonStyles = {
@@ -89,6 +101,10 @@ export const saveButtonStyles = {
   fontWeight: '600',
   lineHeight: '1.361875rem',
   gap: '0.625rem',
+  _hover: {
+    background: '#639605',
+    color: '#FFFFFF',
+  },
 };
 
 export const descriptionInputStyles = {

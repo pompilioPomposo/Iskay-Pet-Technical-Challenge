@@ -44,4 +44,8 @@ export const buttonStyles = {
   fontWeight: '600',
   lineHeight: '1.361875rem',
   gap: '0.625rem',
+  _hover: {
+    background: '#639605',
+    color: '#FFFFFF',
+  },
 };
