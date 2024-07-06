@@ -59,13 +59,22 @@ const MyTodos = () => {
     onClose();
   };
 
+  const deleteTodo = (index) => {
+    setTodoList(todoList.filter((_, i) => i !== index));
+  };
+
   if (selectedTab !== 'Mis tareas') return null;
 
   return (
     <Box {...boxStyles}>
       <Text {...textStyles}>Mis tareas</Text>
       {todoList.map((todo, index) => (
-        <ToDo key={index} title={todo.name} description={todo.description} />
+        <ToDo
+          key={index}
+          title={todo.name}
+          description={todo.description}
+          onDelete={() => deleteTodo(index)}
+        />
       ))}
       <Button {...buttonStyles} onClick={onOpen}>
         Añadir tarea

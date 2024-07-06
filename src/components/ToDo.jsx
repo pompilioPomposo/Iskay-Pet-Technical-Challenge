@@ -10,7 +10,7 @@ import {
   imageStyles,
 } from '../styles/ToDoStyles';
 
-const ToDo = ({ title, description }) => {
+const ToDo = ({ title, description, onDelete }) => {
   return (
     <Card {...cardStyles}>
       <HStack {...hStackStyles}>
@@ -18,7 +18,7 @@ const ToDo = ({ title, description }) => {
           <Text {...titleTextStyles}>{title}</Text>
           <Text {...descriptionTextStyles}>{description}</Text>
         </VStack>
-        <Box {...imageStyles}>
+        <Box {...imageStyles} onClick={onDelete}>
           <TrashImage />
         </Box>
       </HStack>
