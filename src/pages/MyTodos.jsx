@@ -11,11 +11,17 @@ const MyTodos = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [todoList, setTodoList] = useState([]);
   const [formData, setFormData] = useState({ name: '', description: '' });
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
-      const todos = await fetchTodos();
-      setTodoList(todos);
+      const result = await fetchTodos();
+      if (result.error) {
+        setError(result.error);
+      } else {
+        setTodoList(result);
+        setError('');
+      }
     };
 
     fetchData();
@@ -46,6 +52,7 @@ const MyTodos = () => {
   return (
     <Box {...boxStyles}>
       <Text {...textStyles}>Mis tareas</Text>
+      {error && <Text color='red'>{error}</Text>}
       {todoList.map((todo, index) => (
         <ToDo
           key={index}
