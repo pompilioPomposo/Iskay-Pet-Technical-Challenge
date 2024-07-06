@@ -1,10 +1,10 @@
 export const cardStyles = {
   width: '100%',
-  minHeight: '93px',
-  maxHeight: '200px',
-  borderRadius: '4px',
-  boxShadow: '0px 1px 4px 1px #0000001F',
-  mb: '16px',
+  minHeight: '5.8125rem',
+  maxHeight: '12.5rem',
+  borderRadius: '0.25rem',
+  boxShadow: '0rem 0.0625rem 0.25rem 0.0625rem #0000001F',
+  mb: '1rem',
 };
 
 export const hStackStyles = {
@@ -12,7 +12,7 @@ export const hStackStyles = {
 };
 
 export const vStackStyles = {
-  spacing: '0px',
+  spacing: '0rem',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
@@ -20,28 +20,28 @@ export const vStackStyles = {
 };
 
 export const titleTextStyles = {
-  maxWidth: '336px',
-  fontSize: '16px',
+  maxWidth: '21rem',
+  fontSize: '1rem',
   fontWeight: '600',
-  lineHeight: '21.79px',
+  lineHeight: '1.361875rem',
   textAlign: 'left',
-  pt: '17px',
-  ps: '15px',
+  pt: '1.0625rem',
+  ps: '0.9375rem',
   color: '#333333',
 };
 
 export const descriptionTextStyles = {
-  maxWidth: '336px',
-  fontSize: '12px',
+  maxWidth: '21rem',
+  fontSize: '0.75rem',
   fontWeight: '400',
-  lineHeight: '16.34px',
+  lineHeight: '1.02125rem',
   textAlign: 'left',
-  pt: '3px',
-  pb: '17px',
-  ps: '15px',
+  pt: '0.1875rem',
+  pb: '1.0625rem',
+  ps: '0.9375rem',
 };
 
 export const imageStyles = {
-  pe: '15px',
+  pe: '0.9375rem',
   cursor: 'pointer',
 };
