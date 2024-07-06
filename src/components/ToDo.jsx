@@ -8,7 +8,7 @@ const ToDo = () => {
   return (
     <>
       <Card
-        width='380px'
+        width='100%'
         height='93px'
         borderRadius='4px'
         boxShadow='0px 1px 4px 1px #0000001F'
@@ -34,7 +34,6 @@ const ToDo = () => {
               Título tarea
             </Text>
             <Text
-              // fontFamily='Open Sans'
               width='308px'
               fontSize='12px'
               fontWeight='400'
