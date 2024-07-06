@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AppContext } from '../AppContext';
 import { HStack, VStack, Tabs, TabList, Tab, Box } from '@chakra-ui/react';
 import {
+  mainContainerStyles,
   boxStyles,
   hStackStyles,
   vStackStyles,
   tabListStyles,
+  tabStyles,
   absoluteBoxStyles,
 } from '../styles/NavHeaderStyles';
 import { ReactComponent as LogoImage } from '../icons/Logo.svg';
@@ -14,8 +17,15 @@ import { ReactComponent as LoginImage } from '../icons/Login.svg';
 import { ReactComponent as CartImage } from '../icons/Cart.svg';
 
 const NavHeader = () => {
+  const { setSelectedTab } = useContext(AppContext);
+
+  const handleTabClick = (event) => {
+    const selectedTab = event.target.textContent;
+    setSelectedTab(selectedTab);
+  };
+
   return (
-    <Box position='relative' width='100%'>
+    <Box {...mainContainerStyles}>
       <Box {...boxStyles} />
       <VStack {...vStackStyles}>
         <HStack {...hStackStyles}>
@@ -29,11 +39,21 @@ const NavHeader = () => {
       <Box {...absoluteBoxStyles}>
         <Tabs width='100%'>
           <TabList {...tabListStyles}>
-            <Tab px='19px'>Mis datos</Tab>
-            <Tab px='19px'>Mis tareas</Tab>
-            <Tab px='19px'>Mis devoluciones</Tab>
-            <Tab px='19px'>Mis comunicaciones</Tab>
-            <Tab px='19px'>Mis mejores amigos</Tab>
+            <Tab {...tabStyles} onClick={handleTabClick}>
+              Mis datos
+            </Tab>
+            <Tab {...tabStyles} onClick={handleTabClick}>
+              Mis tareas
+            </Tab>
+            <Tab {...tabStyles} onClick={handleTabClick}>
+              Mis devoluciones
+            </Tab>
+            <Tab {...tabStyles} onClick={handleTabClick}>
+              Mis comunicaciones
+            </Tab>
+            <Tab {...tabStyles} onClick={handleTabClick}>
+              Mis mejores amigos
+            </Tab>
           </TabList>
         </Tabs>
       </Box>

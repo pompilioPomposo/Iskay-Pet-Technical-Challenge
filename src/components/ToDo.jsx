@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Card, VStack, HStack } from '@chakra-ui/react';
+import { Text, Card, VStack, HStack, Box } from '@chakra-ui/react';
 import { ReactComponent as TrashImage } from '../icons/Trash.svg';
 import {
   cardStyles,
@@ -22,7 +22,9 @@ const ToDo = () => {
               ac elementum ultrices mauris. Cursus
             </Text>
           </VStack>
-          <TrashImage {...imageStyles} />
+          <Box {...imageStyles}>
+            <TrashImage />
+          </Box>
         </HStack>
       </Card>
     </>

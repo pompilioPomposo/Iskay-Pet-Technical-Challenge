@@ -1,3 +1,8 @@
+export const mainContainerStyles = {
+  position: 'relative',
+  width: '100%',
+};
+
 export const boxStyles = {
   position: 'absolute',
   top: '62px',
@@ -30,6 +35,10 @@ export const tabListStyles = {
   fontSize: '16px',
   fontWeight: '600',
   lineHeight: '21.79px',
+};
+
+export const tabStyles = {
+  px: '19px',
 };
 
 export const absoluteBoxStyles = {
