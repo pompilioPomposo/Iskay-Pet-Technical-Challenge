@@ -1,6 +1,14 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../AppContext';
-import { HStack, VStack, Tabs, TabList, Tab, Box } from '@chakra-ui/react';
+import {
+  HStack,
+  VStack,
+  Tabs,
+  TabList,
+  Tab,
+  Box,
+  TabIndicator,
+} from '@chakra-ui/react';
 import {
   mainContainerStyles,
   boxStyles,
@@ -8,6 +16,7 @@ import {
   vStackStyles,
   tabListStyles,
   tabStyles,
+  tabIndicatorStyles,
   absoluteBoxStyles,
 } from '../styles/NavHeaderStyles';
 import { ReactComponent as LogoImage } from '../icons/Logo.svg';
@@ -37,7 +46,7 @@ const NavHeader = () => {
         </HStack>
       </VStack>
       <Box {...absoluteBoxStyles}>
-        <Tabs width='100%'>
+        <Tabs width='100%' variant='unstyled'>
           <TabList {...tabListStyles}>
             <Tab {...tabStyles} onClick={handleTabClick}>
               Mis datos
@@ -55,6 +64,7 @@ const NavHeader = () => {
               Mis mejores amigos
             </Tab>
           </TabList>
+          <TabIndicator {...tabIndicatorStyles} />
         </Tabs>
       </Box>
     </Box>

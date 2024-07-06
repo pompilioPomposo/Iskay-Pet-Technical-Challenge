@@ -45,10 +45,23 @@ export const tabListStyles = {
 };
 
 export const tabStyles = {
-  px: '1.1875rem',
+  px: '2.1875rem',
+  fontSize: '1rem',
+  fontWeight: '600',
+  lineHeight: '1.361875rem',
   _selected: {
     color: '#639605',
+    fontSize: '1rem',
+    fontWeight: '700',
+    lineHeight: '1.361875rem',
   },
+};
+
+export const tabIndicatorStyles = {
+  mt: '-0.25rem',
+  height: '0.25rem',
+  bg: '#639605',
+  borderRadius: '0.1875rem 0.1875rem 0 0',
 };
 
 export const absoluteBoxStyles = {
