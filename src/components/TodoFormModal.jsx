@@ -19,6 +19,7 @@ import {
   modalHeaderStyles,
   modalCloseStyles,
   formControlStyles,
+  hstackStyles,
   cancelButtonStyles,
   saveButtonStyles,
   descriptionInputStyles,
@@ -63,7 +64,7 @@ const TodoFormModal = ({
         </FormControl>
       </ModalBody>
 
-      <HStack justifyContent='space-between'>
+      <HStack {...hstackStyles}>
         <Button onClick={onClose} {...cancelButtonStyles}>
           Cancelar
         </Button>

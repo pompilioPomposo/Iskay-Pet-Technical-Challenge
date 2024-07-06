@@ -33,7 +33,7 @@ export const modalHeaderStyles = {
 };
 
 export const modalCloseStyles = {
-  pt: '25px',
+  pt: '1.5625rem',
 };
 
 export const formControlStyles = {
@@ -56,6 +56,10 @@ export const buttonStyles = {
   fontWeight: '600',
   lineHeight: '1.361875rem',
   gap: '0.625rem',
+};
+
+export const hstackStyles = {
+  justifyContent: 'space-between',
 };
 
 export const cancelButtonStyles = {
