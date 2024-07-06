@@ -16,6 +16,7 @@ import {
   FormLabel,
   Input,
   Textarea,
+  FormErrorMessage,
 } from '@chakra-ui/react';
 import ToDo from '../components/ToDo';
 import {
@@ -44,6 +45,7 @@ const MyTodos = () => {
     },
   ]);
   const [formData, setFormData] = useState({ name: '', description: '' });
+  const [errors, setErrors] = useState({});
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -53,9 +55,23 @@ const MyTodos = () => {
     });
   };
 
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.name) newErrors.name = 'El nombre es obligatorio';
+    if (!formData.description)
+      newErrors.description = 'La descripción es obligatoria';
+    return newErrors;
+  };
+
   const saveTodo = () => {
+    const formErrors = validateForm();
+    if (Object.keys(formErrors).length > 0) {
+      setErrors(formErrors);
+      return;
+    }
     setTodoList([...todoList, formData]);
     setFormData({ name: '', description: '' });
+    setErrors({});
     onClose();
   };
 
@@ -86,7 +102,7 @@ const MyTodos = () => {
           <ModalHeader {...modalHeaderStyles}>Añadir tarea</ModalHeader>
           <ModalCloseButton {...modalCloseStyles} />
           <ModalBody>
-            <FormControl {...formControlStyles}>
+            <FormControl {...formControlStyles} isInvalid={errors.name}>
               <FormLabel {...labelStyles}>Nombre</FormLabel>
               <Input
                 name='name'
@@ -95,8 +111,9 @@ const MyTodos = () => {
                 placeholder='Nombre'
                 {...inputStyles}
               />
+              <FormErrorMessage>{errors.name}</FormErrorMessage>
             </FormControl>
-            <FormControl {...formControlStyles}>
+            <FormControl {...formControlStyles} isInvalid={errors.description}>
               <FormLabel {...labelStyles}>Descripción</FormLabel>
               <Textarea
                 name='description'
@@ -105,6 +122,7 @@ const MyTodos = () => {
                 placeholder='Descripción'
                 {...descriptionInputStyles}
               />
+              <FormErrorMessage>{errors.description}</FormErrorMessage>
             </FormControl>
           </ModalBody>
 
