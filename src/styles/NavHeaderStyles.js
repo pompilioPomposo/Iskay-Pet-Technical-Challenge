@@ -35,10 +35,20 @@ export const tabListStyles = {
   fontSize: '16px',
   fontWeight: '600',
   lineHeight: '21.79px',
+  sx: {
+    '::-webkit-scrollbar': {
+      display: 'none',
+    },
+    '-ms-overflow-style': 'none',
+    'scrollbar-width': 'none',
+  },
 };
 
 export const tabStyles = {
   px: '19px',
+  _selected: {
+    color: '#639605',
+  },
 };
 
 export const absoluteBoxStyles = {
@@ -49,4 +59,12 @@ export const absoluteBoxStyles = {
   overflowX: 'auto',
   whiteSpace: 'nowrap',
   backgroundColor: '#FFFFFF',
+  boxShadow: '0px 3px 3px 0px #0000001F',
+  sx: {
+    '::-webkit-scrollbar': {
+      display: 'none',
+    },
+    '-ms-overflow-style': 'none',
+    'scrollbar-width': 'none',
+  },
 };

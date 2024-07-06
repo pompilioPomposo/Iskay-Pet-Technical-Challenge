@@ -1,6 +1,7 @@
 export const cardStyles = {
   width: '100%',
-  height: '93px',
+  minHeight: '93px',
+  maxHeight: '200px',
   borderRadius: '4px',
   boxShadow: '0px 1px 4px 1px #0000001F',
   mb: '16px',
@@ -41,4 +42,5 @@ export const descriptionTextStyles = {
 
 export const imageStyles = {
   pe: '15px',
+  cursor: 'pointer',
 };

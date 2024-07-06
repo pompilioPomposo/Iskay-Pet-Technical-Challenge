@@ -24,7 +24,7 @@ export const buttonStyles = {
   borderRadius: '5px',
   background: '#639605',
   color: '#FFFFFF',
-  mt: '42px',
+  my: '42px',
   p: '12px 141px 12px 141px',
   fontSize: '16px',
   fontWeight: '600',
