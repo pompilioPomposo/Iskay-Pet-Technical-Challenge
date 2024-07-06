@@ -50,8 +50,8 @@ export const buttonStyles = {
   borderRadius: '0.3125rem',
   background: '#639605',
   color: '#FFFFFF',
-  my: '2.625rem',
-  p: '0.75rem 8.8125rem',
+  my: '2rem',
+  p: '0.75rem 8.8125rem 0.75rem 8.8125rem',
   fontSize: '1rem',
   fontWeight: '600',
   lineHeight: '1.361875rem',
@@ -99,5 +99,26 @@ export const descriptionInputStyles = {
   _focus: {
     borderColor: '#C9C9C9',
     boxShadow: 'none',
+  },
+};
+
+export const paginationButtonStyles = {
+  mt: '1rem',
+  height: '2rem',
+  width: '2rem',
+  borderRadius: '0.25rem',
+  border: '1px solid #639605',
+  bg: '#FFFFFF',
+  color: '#639605',
+  _hover: {
+    bg: '#639605',
+    color: '#FFFFFF',
+  },
+  _focus: {
+    boxShadow: 'none',
+  },
+  _active: {
+    bg: '#639605',
+    color: '#FFFFFF',
   },
 };

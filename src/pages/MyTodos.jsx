@@ -1,8 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { AppContext } from '../AppContext';
-import { Text, Box, Button, useDisclosure } from '@chakra-ui/react';
+import { Text, Box, Button, useDisclosure, VStack } from '@chakra-ui/react';
 import ToDo from '../components/ToDo';
 import TodoFormModal from '../components/TodoFormModal';
+import Pagination from '../components/Pagination';
 import { boxStyles, textStyles, buttonStyles } from '../styles/MyTodosStyles';
 import { fetchTodos, saveTodo, deleteTodo } from '../services/todoService';
 
@@ -12,6 +13,8 @@ const MyTodos = () => {
   const [todoList, setTodoList] = useState([]);
   const [formData, setFormData] = useState({ name: '', description: '' });
   const [error, setError] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const todosPerPage = 4;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,24 +50,39 @@ const MyTodos = () => {
     setTodoList(newTodoList);
   };
 
+  const indexOfLastTodo = currentPage * todosPerPage;
+  const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
+  const currentTodos = todoList.slice(indexOfFirstTodo, indexOfLastTodo);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   if (selectedTab !== 'Mis tareas') return null;
 
   return (
     <Box {...boxStyles}>
       <Text {...textStyles}>Mis tareas</Text>
       {error && <Text color='red'>{error}</Text>}
-      {todoList.map((todo, index) => (
+      {currentTodos.map((todo, index) => (
         <ToDo
           key={index}
           title={todo.name}
           description={todo.description}
-          onDelete={() => handleDeleteTodo(index)}
+          onDelete={() => handleDeleteTodo(indexOfFirstTodo + index)}
         />
       ))}
-      <Button {...buttonStyles} onClick={onOpen}>
-        Añadir tarea
-      </Button>
-
+      <VStack>
+        {todoList.length > todosPerPage && (
+          <Pagination
+            todosPerPage={todosPerPage}
+            totalTodos={todoList.length}
+            paginate={paginate}
+            currentPage={currentPage}
+          />
+        )}
+        <Button {...buttonStyles} onClick={onOpen}>
+          Añadir tarea
+        </Button>
+      </VStack>
       <TodoFormModal
         isOpen={isOpen}
         onClose={onClose}
