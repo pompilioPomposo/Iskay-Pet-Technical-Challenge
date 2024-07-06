@@ -1,37 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../AppContext';
-import {
-  Text,
-  Box,
-  Button,
-  HStack,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalCloseButton,
-  useDisclosure,
-  FormControl,
-  FormLabel,
-  Input,
-  Textarea,
-  FormErrorMessage,
-} from '@chakra-ui/react';
+import { Text, Box, Button, useDisclosure } from '@chakra-ui/react';
+import { boxStyles, textStyles, buttonStyles } from '../styles/MyTodosStyles';
 import ToDo from '../components/ToDo';
-import {
-  boxStyles,
-  textStyles,
-  modalContentStyles,
-  modalHeaderStyles,
-  modalCloseStyles,
-  formControlStyles,
-  buttonStyles,
-  cancelButtonStyles,
-  saveButtonStyles,
-  descriptionInputStyles,
-} from '../styles/MyTodosStyles';
-import { inputStyles, labelStyles } from '../styles/PersonalDataStyles';
+import TodoFormModal from '../components/TodoFormModal';
 
 const MyTodos = () => {
   const { selectedTab } = useContext(AppContext);
@@ -96,46 +68,14 @@ const MyTodos = () => {
         Añadir tarea
       </Button>
 
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent {...modalContentStyles}>
-          <ModalHeader {...modalHeaderStyles}>Añadir tarea</ModalHeader>
-          <ModalCloseButton {...modalCloseStyles} />
-          <ModalBody>
-            <FormControl {...formControlStyles} isInvalid={errors.name}>
-              <FormLabel {...labelStyles}>Nombre</FormLabel>
-              <Input
-                name='name'
-                value={formData.name}
-                onChange={handleInputChange}
-                placeholder='Nombre'
-                {...inputStyles}
-              />
-              <FormErrorMessage>{errors.name}</FormErrorMessage>
-            </FormControl>
-            <FormControl {...formControlStyles} isInvalid={errors.description}>
-              <FormLabel {...labelStyles}>Descripción</FormLabel>
-              <Textarea
-                name='description'
-                value={formData.description}
-                onChange={handleInputChange}
-                placeholder='Descripción'
-                {...descriptionInputStyles}
-              />
-              <FormErrorMessage>{errors.description}</FormErrorMessage>
-            </FormControl>
-          </ModalBody>
-
-          <HStack justifyContent='space-between'>
-            <Button onClick={onClose} {...cancelButtonStyles}>
-              Cancelar
-            </Button>
-            <Button onClick={saveTodo} {...saveButtonStyles}>
-              Guardar
-            </Button>
-          </HStack>
-        </ModalContent>
-      </Modal>
+      <TodoFormModal
+        isOpen={isOpen}
+        onClose={onClose}
+        formData={formData}
+        handleInputChange={handleInputChange}
+        saveTodo={saveTodo}
+        errors={errors}
+      />
     </Box>
   );
 };
