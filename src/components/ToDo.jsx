@@ -12,22 +12,20 @@ import {
 
 const ToDo = () => {
   return (
-    <>
-      <Card {...cardStyles}>
-        <HStack {...hStackStyles}>
-          <VStack {...vStackStyles}>
-            <Text {...titleTextStyles}>Título tarea</Text>
-            <Text {...descriptionTextStyles}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris,
-              ac elementum ultrices mauris. Cursus
-            </Text>
-          </VStack>
-          <Box {...imageStyles}>
-            <TrashImage />
-          </Box>
-        </HStack>
-      </Card>
-    </>
+    <Card {...cardStyles}>
+      <HStack {...hStackStyles}>
+        <VStack {...vStackStyles}>
+          <Text {...titleTextStyles}>Título tarea</Text>
+          <Text {...descriptionTextStyles}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris, ac
+            elementum ultrices mauris. Cursus
+          </Text>
+        </VStack>
+        <Box {...imageStyles}>
+          <TrashImage />
+        </Box>
+      </HStack>
+    </Card>
   );
 };
 
