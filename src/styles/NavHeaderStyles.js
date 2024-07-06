@@ -41,7 +41,13 @@ export const tabListStyles = {
     },
     '-ms-overflow-style': 'none',
     'scrollbar-width': 'none',
+    scrollBehavior: 'smooth',
   },
+};
+
+export const mainTabsStyles = {
+  width: '100%',
+  variant: 'unstyled',
 };
 
 export const tabStyles = {
@@ -54,14 +60,8 @@ export const tabStyles = {
     fontSize: '1rem',
     fontWeight: '700',
     lineHeight: '1.361875rem',
+    boxShadow: 'inset 0 -0.25rem 0 0 #639605',
   },
-};
-
-export const tabIndicatorStyles = {
-  mt: '-0.25rem',
-  height: '0.25rem',
-  bg: '#639605',
-  borderRadius: '0.1875rem 0.1875rem 0 0',
 };
 
 export const absoluteBoxStyles = {
