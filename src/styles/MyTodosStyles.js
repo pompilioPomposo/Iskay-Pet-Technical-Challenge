@@ -18,6 +18,10 @@ export const textStyles = {
   alignSelf: 'flex-start',
 };
 
+export const modalContentStyles = {
+  mx: '1.0625rem',
+};
+
 export const modalHeaderStyles = {
   pt: '1.5625rem',
   pb: '2rem',
@@ -26,6 +30,10 @@ export const modalHeaderStyles = {
   lineHeight: '1.7025rem',
   color: '#333333',
   alignSelf: 'flex-start',
+};
+
+export const modalCloseStyles = {
+  pt: '25px',
 };
 
 export const formControlStyles = {

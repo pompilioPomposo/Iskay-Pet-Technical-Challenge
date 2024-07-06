@@ -10,16 +10,13 @@ import {
   imageStyles,
 } from '../styles/ToDoStyles';
 
-const ToDo = () => {
+const ToDo = ({ title, description }) => {
   return (
     <Card {...cardStyles}>
       <HStack {...hStackStyles}>
         <VStack {...vStackStyles}>
-          <Text {...titleTextStyles}>Título tarea</Text>
-          <Text {...descriptionTextStyles}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris, ac
-            elementum ultrices mauris. Cursus urna
-          </Text>
+          <Text {...titleTextStyles}>{title}</Text>
+          <Text {...descriptionTextStyles}>{description}</Text>
         </VStack>
         <Box {...imageStyles}>
           <TrashImage />

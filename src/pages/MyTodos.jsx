@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AppContext } from '../AppContext';
 import {
   Text,
@@ -21,7 +21,9 @@ import ToDo from '../components/ToDo';
 import {
   boxStyles,
   textStyles,
+  modalContentStyles,
   modalHeaderStyles,
+  modalCloseStyles,
   formControlStyles,
   buttonStyles,
   cancelButtonStyles,
@@ -33,9 +35,28 @@ import { inputStyles, labelStyles } from '../styles/PersonalDataStyles';
 const MyTodos = () => {
   const { selectedTab } = useContext(AppContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [todoList, setTodoList] = useState([
+    { name: 'Dummy', description: 'Tarea inicial' },
+    {
+      name: 'Dummy 2',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris, ac elementum ultrices mauris. Cursus urna vehicula nisi aliquam pulvinar sit interdum eget ac. Rhoncus et nunc, aliquam, ac faucibus odio porta diam lorem. Dictum amet malesuada dictum tristique sollicitudin sed sagittis.',
+    },
+  ]);
+  const [formData, setFormData] = useState({ name: '', description: '' });
 
-  const saveTodo = async () => {
-    // state management here
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const saveTodo = () => {
+    setTodoList([...todoList, formData]);
+    setFormData({ name: '', description: '' });
+    onClose();
   };
 
   if (selectedTab !== 'Mis tareas') return null;
@@ -43,31 +64,43 @@ const MyTodos = () => {
   return (
     <Box {...boxStyles}>
       <Text {...textStyles}>Mis tareas</Text>
-      <ToDo />
-      <ToDo />
-      <ToDo />
+      {todoList.map((todo, index) => (
+        <ToDo key={index} title={todo.name} description={todo.description} />
+      ))}
       <Button {...buttonStyles} onClick={onOpen}>
         Añadir tarea
       </Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent mx='1.0625rem'>
+        <ModalContent {...modalContentStyles}>
           <ModalHeader {...modalHeaderStyles}>Añadir tarea</ModalHeader>
-          <ModalCloseButton pt='25px' />
+          <ModalCloseButton {...modalCloseStyles} />
           <ModalBody>
             <FormControl {...formControlStyles}>
               <FormLabel {...labelStyles}>Nombre</FormLabel>
-              <Input placeholder='Nombre' {...inputStyles} />
+              <Input
+                name='name'
+                value={formData.name}
+                onChange={handleInputChange}
+                placeholder='Nombre'
+                {...inputStyles}
+              />
             </FormControl>
             <FormControl {...formControlStyles}>
               <FormLabel {...labelStyles}>Descripción</FormLabel>
-              <Textarea placeholder='Descripción' {...descriptionInputStyles} />
+              <Textarea
+                name='description'
+                value={formData.description}
+                onChange={handleInputChange}
+                placeholder='Descripción'
+                {...descriptionInputStyles}
+              />
             </FormControl>
           </ModalBody>
 
           <HStack justifyContent='space-between'>
-            <Button variant='ghost' onClick={onClose} {...cancelButtonStyles}>
+            <Button onClick={onClose} {...cancelButtonStyles}>
               Cancelar
             </Button>
             <Button onClick={saveTodo} {...saveButtonStyles}>
