@@ -1,18 +1,5 @@
 import React from 'react';
-import {
-  HStack,
-  VStack,
-  Image,
-  Tabs,
-  TabList,
-  Tab,
-  Box,
-} from '@chakra-ui/react';
-import logoImage from '../icons/Logo.png';
-import menuImage from '../icons/Menu.png';
-import searchImage from '../icons/Search.png';
-import loginImage from '../icons/Login.png';
-import cartImage from '../icons/Cart.png';
+import { HStack, VStack, Tabs, TabList, Tab, Box } from '@chakra-ui/react';
 import {
   boxStyles,
   hStackStyles,
@@ -20,6 +7,11 @@ import {
   tabListStyles,
   absoluteBoxStyles,
 } from '../styles/NavHeaderStyles';
+import { ReactComponent as LogoImage } from '../icons/Logo.svg';
+import { ReactComponent as MenuImage } from '../icons/Menu.svg';
+import { ReactComponent as SearchImage } from '../icons/Search.svg';
+import { ReactComponent as LoginImage } from '../icons/Login.svg';
+import { ReactComponent as CartImage } from '../icons/Cart.svg';
 
 const NavHeader = () => {
   return (
@@ -27,11 +19,11 @@ const NavHeader = () => {
       <Box {...boxStyles} />
       <VStack {...vStackStyles}>
         <HStack {...hStackStyles}>
-          <Image src={menuImage} />
-          <Image src={searchImage} />
-          <Image src={logoImage} />
-          <Image src={loginImage} />
-          <Image src={cartImage} />
+          <MenuImage />
+          <SearchImage />
+          <LogoImage />
+          <LoginImage />
+          <CartImage />
         </HStack>
       </VStack>
       <Box {...absoluteBoxStyles}>
