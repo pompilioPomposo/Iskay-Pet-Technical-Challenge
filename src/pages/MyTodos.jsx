@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../AppContext';
 import { Text, Box, Button, useDisclosure } from '@chakra-ui/react';
-import { boxStyles, textStyles, buttonStyles } from '../styles/MyTodosStyles';
 import ToDo from '../components/ToDo';
 import TodoFormModal from '../components/TodoFormModal';
+import { boxStyles, textStyles, buttonStyles } from '../styles/MyTodosStyles';
 
 const MyTodos = () => {
   const { selectedTab } = useContext(AppContext);
@@ -17,7 +17,6 @@ const MyTodos = () => {
     },
   ]);
   const [formData, setFormData] = useState({ name: '', description: '' });
-  const [errors, setErrors] = useState({});
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -27,27 +26,13 @@ const MyTodos = () => {
     });
   };
 
-  const validateForm = () => {
-    const newErrors = {};
-    if (!formData.name) newErrors.name = 'El nombre es obligatorio';
-    if (!formData.description)
-      newErrors.description = 'La descripción es obligatoria';
-    return newErrors;
-  };
-
-  const saveTodo = () => {
-    const formErrors = validateForm();
-    if (Object.keys(formErrors).length > 0) {
-      setErrors(formErrors);
-      return;
-    }
+  const handleSaveTodo = () => {
     setTodoList([...todoList, formData]);
     setFormData({ name: '', description: '' });
-    setErrors({});
     onClose();
   };
 
-  const deleteTodo = (index) => {
+  const handleDeleteTodo = (index) => {
     setTodoList(todoList.filter((_, i) => i !== index));
   };
 
@@ -61,7 +46,7 @@ const MyTodos = () => {
           key={index}
           title={todo.name}
           description={todo.description}
-          onDelete={() => deleteTodo(index)}
+          onDelete={() => handleDeleteTodo(index)}
         />
       ))}
       <Button {...buttonStyles} onClick={onOpen}>
@@ -73,8 +58,7 @@ const MyTodos = () => {
         onClose={onClose}
         formData={formData}
         handleInputChange={handleInputChange}
-        saveTodo={saveTodo}
-        errors={errors}
+        saveTodo={handleSaveTodo}
       />
     </Box>
   );
