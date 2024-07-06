@@ -1,22 +1,25 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { AppContext } from '../AppContext';
 import { Text, Box, Button, useDisclosure } from '@chakra-ui/react';
 import ToDo from '../components/ToDo';
 import TodoFormModal from '../components/TodoFormModal';
 import { boxStyles, textStyles, buttonStyles } from '../styles/MyTodosStyles';
+import { fetchTodos, saveTodo, deleteTodo } from '../services/todoService';
 
 const MyTodos = () => {
   const { selectedTab } = useContext(AppContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [todoList, setTodoList] = useState([
-    { name: 'Dummy', description: 'Tarea inicial' },
-    {
-      name: 'Dummy 2',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris, ac elementum ultrices mauris. Cursus urna vehicula nisi aliquam pulvinar sit interdum eget ac. Rhoncus et nunc, aliquam, ac faucibus odio porta diam lorem. Dictum amet malesuada dictum tristique sollicitudin sed sagittis.',
-    },
-  ]);
+  const [todoList, setTodoList] = useState([]);
   const [formData, setFormData] = useState({ name: '', description: '' });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const todos = await fetchTodos();
+      setTodoList(todos);
+    };
+
+    fetchData();
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -27,13 +30,15 @@ const MyTodos = () => {
   };
 
   const handleSaveTodo = () => {
-    setTodoList([...todoList, formData]);
+    const newTodoList = saveTodo(todoList, formData);
+    setTodoList(newTodoList);
     setFormData({ name: '', description: '' });
     onClose();
   };
 
   const handleDeleteTodo = (index) => {
-    setTodoList(todoList.filter((_, i) => i !== index));
+    const newTodoList = deleteTodo(todoList, index);
+    setTodoList(newTodoList);
   };
 
   if (selectedTab !== 'Mis tareas') return null;
