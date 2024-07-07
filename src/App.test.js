@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import MyTodos from '../pages/MyTodos';
-import { AppContext } from '../AppContext';
+import MyTodos from './pages/MyTodos';
+import { AppContext } from './AppContext';
 
 jest.mock('./services/todoService', () => ({
   fetchTodos: jest.fn(() =>
