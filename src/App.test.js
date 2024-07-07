@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect';
 import MyTodos from '../pages/MyTodos';
 import { AppContext } from '../AppContext';
 
-jest.mock('../services/todoService', () => ({
+jest.mock('./services/todoService', () => ({
   fetchTodos: jest.fn(() =>
     Promise.resolve([
       { name: 'Dummy', description: 'Tarea inicial' },
