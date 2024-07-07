@@ -23,8 +23,13 @@ test('fetches and displays todos', async () => {
     </AppContext.Provider>
   );
 
-  await waitFor(() => {
-    expect(screen.getByText('Tarea inicial')).toBeInTheDocument();
-    expect(screen.getByText('Tarea secundaria')).toBeInTheDocument();
-  });
+  await waitFor(() =>
+    expect(screen.getByText('Mis tareas')).toBeInTheDocument()
+  );
+  await waitFor(() =>
+    expect(screen.getByText('Tarea inicial')).toBeInTheDocument()
+  );
+  await waitFor(() =>
+    expect(screen.getByText('Tarea secundaria')).toBeInTheDocument()
+  );
 });
