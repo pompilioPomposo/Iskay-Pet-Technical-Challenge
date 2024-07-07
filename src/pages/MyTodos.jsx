@@ -52,7 +52,7 @@ const MyTodos = () => {
 
   const indexOfLastTodo = currentPage * todosPerPage;
   const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
-  const currentTodos = todoList.slice(indexOfFirstTodo, indexOfLastTodo);
+  const currentTodos = todoList?.slice(indexOfFirstTodo, indexOfLastTodo);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -62,7 +62,7 @@ const MyTodos = () => {
     <Box {...boxStyles}>
       <Text {...textStyles}>Mis tareas</Text>
       {error && <Text color='red'>{error}</Text>}
-      {currentTodos.map((todo, index) => (
+      {currentTodos?.map((todo, index) => (
         <ToDo
           key={index}
           title={todo.name}
@@ -71,7 +71,7 @@ const MyTodos = () => {
         />
       ))}
       <VStack>
-        {todoList.length > todosPerPage && (
+        {todoList?.length > todosPerPage && (
           <Pagination
             todosPerPage={todosPerPage}
             totalTodos={todoList.length}
