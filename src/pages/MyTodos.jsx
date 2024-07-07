@@ -21,7 +21,9 @@ const MyTodos = () => {
       const result = await fetchTodos();
       if (result?.error) {
         setError(result.error);
+        console.log(result.error);
       } else {
+        console.log('Fetched todos:', result);
         setTodoList(result);
         setError('');
       }

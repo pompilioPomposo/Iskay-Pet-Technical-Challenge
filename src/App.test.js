@@ -12,9 +12,8 @@ const mockTodos = [
   { name: 'Dummy 2', description: 'Tarea secundaria' },
 ];
 
-fetchTodos.mockResolvedValue(mockTodos);
-
 test('fetches and displays todos', async () => {
+  fetchTodos.mockResolvedValue(mockTodos);
   const contextValue = { selectedTab: 'Mis tareas' };
 
   render(
@@ -23,13 +22,31 @@ test('fetches and displays todos', async () => {
     </AppContext.Provider>
   );
 
-  await waitFor(() =>
-    expect(screen.getByText('Mis tareas')).toBeInTheDocument()
+  await waitFor(() => {
+    expect(screen.getByText('Mis tareas')).toBeInTheDocument();
+  });
+
+  await waitFor(() => {
+    mockTodos.forEach((todo) => {
+      expect(screen.getByText(todo.name)).toBeInTheDocument();
+      expect(screen.getByText(todo.description)).toBeInTheDocument();
+    });
+  });
+});
+
+test('handles fetch errors', async () => {
+  fetchTodos.mockRejectedValueOnce(new Error('API is down'));
+  const contextValue = { selectedTab: 'Mis tareas' };
+
+  render(
+    <AppContext.Provider value={contextValue}>
+      <MyTodos />
+    </AppContext.Provider>
   );
-  await waitFor(() =>
-    expect(screen.getByText('Tarea inicial')).toBeInTheDocument()
-  );
-  await waitFor(() =>
-    expect(screen.getByText('Tarea secundaria')).toBeInTheDocument()
-  );
+
+  await waitFor(() => {
+    expect(
+      screen.getByText('Error fetching todos: API is down')
+    ).toBeInTheDocument();
+  });
 });
