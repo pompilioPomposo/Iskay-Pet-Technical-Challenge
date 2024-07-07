@@ -88,7 +88,7 @@ The project is organized as follows:
    npm test
    ```
 
-### Continuous Integration
+## Continuous Integration
 
 The project uses GitHub Actions for continuous integration. The configuration is located in .github/workflows/ci.yml. The CI pipeline includes steps for installing dependencies, running tests, and checking for errors. This is actually the first time I use CI/CD pipelines, learning it just for the purposes of the challenge.
 
