@@ -2,7 +2,9 @@
 
 ## Project Overview
 
-This project is a technical challenge completed as part of a job interview. The application is a React-based todo list manager with various features, including form validation, API fetching, pagination, and a styled user interface using Chakra UI. The project demonstrates proficiency in modern React development practices, state management, and integration of third-party libraries and APIs.
+This project is a technical challenge completed as part of a job interview, with the designs provided in Figma. The application is a React-based todo list manager with various features, including form validation, API fetching, pagination, and a styled user interface using Chakra UI. The intention being to show my capabilities in modern React development practices, state management, and integration of third-party libraries and APIs.
+
+I first started up the project using create-react-app to get everything up and running faster, not realizing it is now deprecated. What a mess!
 
 ## Features
 
@@ -11,7 +13,7 @@ This project is a technical challenge completed as part of a job interview. The 
 - **API Integration**: Fetches initial todos from `https://jsonplaceholder.typicode.com/todos/`.
 - **Pagination**: Handles multiple pages of todos.
 - **Responsive Design**: Styled using Chakra UI to ensure a consistent look and feel across devices.
-- **Error Handling**: Displays user-friendly messages for different error scenarios.
+- **Error Handling**: Displays messages for different error scenarios.
 
 ## Project Structure
 
@@ -70,32 +72,24 @@ The project is organized as follows:
 
 3. Running the Application
 
-To start the development server, run:
+   To start the development server, run:
 
-```bash
-npm start
-```
+   ```bash
+   npm start
+   ```
 
-The application will be available at http://localhost:3000.
+   The application will be available at http://localhost:3000.
 
 4. Running Tests
 
-To run tests, use:
+   To run tests, use:
 
-```bash
-npm test
-```
+   ```bash
+   npm test
+   ```
 
 ### Continuous Integration
 
-The project uses GitHub Actions for continuous integration. The workflow configuration is located in .github/workflows/ci.yml. The CI pipeline includes steps for installing dependencies, running tests, and checking for errors.
-Author
+The project uses GitHub Actions for continuous integration. The configuration is located in .github/workflows/ci.yml. The CI pipeline includes steps for installing dependencies, running tests, and checking for errors. This is actually the first time I use CI/CD pipelines, learning it just for the purposes of the challenge.
 
-Mauro Montero
-License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-Acknowledgments
-
-    Chakra UI for the UI components.
-    JSONPlaceholder for the mock API.
+Author: Mauro Montero
