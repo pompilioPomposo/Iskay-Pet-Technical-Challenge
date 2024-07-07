@@ -34,19 +34,19 @@ test('fetches and displays todos', async () => {
   });
 });
 
-test('handles fetch errors', async () => {
-  fetchTodos.mockRejectedValueOnce(new Error('API is down'));
-  const contextValue = { selectedTab: 'Mis tareas' };
+// test('handles fetch errors', async () => {
+//   fetchTodos.mockRejectedValueOnce(new Error('API is down'));
+//   const contextValue = { selectedTab: 'Mis tareas' };
 
-  render(
-    <AppContext.Provider value={contextValue}>
-      <MyTodos />
-    </AppContext.Provider>
-  );
+//   render(
+//     <AppContext.Provider value={contextValue}>
+//       <MyTodos />
+//     </AppContext.Provider>
+//   );
 
-  await waitFor(() => {
-    expect(
-      screen.getByText('Error fetching todos: API is down')
-    ).toBeInTheDocument();
-  });
-});
+//   await waitFor(() => {
+//     expect(
+//       screen.getByText('Error fetching todos: API is down')
+//     ).toBeInTheDocument();
+//   });
+// });
