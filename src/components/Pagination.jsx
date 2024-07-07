@@ -1,6 +1,6 @@
 import React from 'react';
 import { HStack, Button } from '@chakra-ui/react';
-import { paginationButtonStyles } from '../styles/MyTodosStyles';
+import { paginationButtonStyles } from '../styles/PaginationStyles';
 
 const Pagination = ({ todosPerPage, totalTodos, paginate, currentPage }) => {
   const pageNumbers = [];

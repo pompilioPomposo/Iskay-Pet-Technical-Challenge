@@ -22,8 +22,9 @@ import {
   cancelButtonStyles,
   saveButtonStyles,
   descriptionInputStyles,
-} from '../styles/MyTodosStyles';
-import { inputStyles, labelStyles } from '../styles/PersonalDataStyles';
+  inputStyles,
+  labelStyles,
+} from '../styles/FormModalStyles';
 
 const TodoFormModal = ({
   isOpen,
