@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+# Iskay Pet Technical Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview
 
-## Available Scripts
+This project is a technical challenge completed as part of a job interview. The application is a React-based todo list manager with various features, including form validation, API fetching, pagination, and a styled user interface using Chakra UI. The project demonstrates proficiency in modern React development practices, state management, and integration of third-party libraries and APIs.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Todo List Management**: Add, view, and delete todos.
+- **Form Validation**: Ensures that todos have valid names and descriptions.
+- **API Integration**: Fetches initial todos from `https://jsonplaceholder.typicode.com/todos/`.
+- **Pagination**: Handles multiple pages of todos.
+- **Responsive Design**: Styled using Chakra UI to ensure a consistent look and feel across devices.
+- **Error Handling**: Displays user-friendly messages for different error scenarios.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Project Structure
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The project is organized as follows:
 
-### `npm test`
+- **src**
+  - **components**: Contains all the React components used in the project.
+    - `NavHeader.jsx`
+    - `Pagination.jsx`
+    - `PersonalDataForm.jsx`
+    - `ToDo.jsx`
+    - `TodoFormModal.jsx`
+  - **icons**: SVG icons used in the project.
+  - **pages**: Different pages of the application.
+    - `MyBestFriends.jsx`
+    - `MyComms.jsx`
+    - `MyData.jsx`
+    - `MyReturns.jsx`
+    - `MyTodos.jsx`
+  - **services**: Contains the service functions for API interactions.
+    - `todoService.js`
+  - **styles**: Style files for various components.
+    - `MyTodosStyles.js`
+    - `NavHeaderStyles.js`
+    - `PersonalDataStyles.js`
+    - `ToDoStyles.js`
+  - `App.jsx`: Main application component.
+  - `AppContext.js`: Context for managing global state.
+  - `index.js`: Entry point of the application.
+  - `theme.js`: Custom theme configurations for Chakra UI.
+- **public**: Public assets and configuration files.
+- **tests**: Test files for the project.
+  - `App.test.js`: Basic test to check if the app renders correctly.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js (version 20.0.0 or higher)
+- npm (version 7.0.0 or higher)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the repository:
 
-### `npm run eject`
+   ```bash
+   git clone https://github.com/pompilioPomposo/Iskay-Pet-Technical-Challenge.git
+   cd Iskay-Pet-Technical-Challenge
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Install dependencies:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```bash
+   npm install
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Running the Application
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+To start the development server, run:
 
-## Learn More
+```bash
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The application will be available at http://localhost:3000.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. Running Tests
 
-### Code Splitting
+To run tests, use:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm test
+```
 
-### Analyzing the Bundle Size
+### Continuous Integration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The project uses GitHub Actions for continuous integration. The workflow configuration is located in .github/workflows/ci.yml. The CI pipeline includes steps for installing dependencies, running tests, and checking for errors.
+Author
 
-### Making a Progressive Web App
+Mauro Montero
+License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+This project is licensed under the MIT License - see the LICENSE file for details.
+Acknowledgments
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    Chakra UI for the UI components.
+    JSONPlaceholder for the mock API.
