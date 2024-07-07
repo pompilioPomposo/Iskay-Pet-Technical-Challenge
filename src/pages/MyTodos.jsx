@@ -19,7 +19,7 @@ const MyTodos = () => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await fetchTodos();
-      if (result.error) {
+      if (result?.error) {
         setError(result.error);
       } else {
         setTodoList(result);
