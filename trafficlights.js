@@ -1,5 +1,6 @@
 // For use in https://www.codewars.com/kata/5d230e119dd9860028167fa5
 // Not finished, this passes the sample test but only gets through around 40% of the 100 or so automatic tests after clicking on Attempt.
+// The current most glaring issue is that the cars pile up on the red lights, which results in a loss of cars.
 
 function trafficLights(road, n) {
   const result = [];
@@ -55,7 +56,7 @@ function trafficLights(road, n) {
             break;
 
           case 'C':
-            // this condition will prevent cars from 'piling up'
+            // This condition should prevent cars from 'piling up' in places like red lights, but I couldn't get it to work on time
             if (!Object.keys(lightTimers).includes((i + 1).toString())) {
               newRoadArray[nextPos] = 'C';
             } else {
