@@ -1,4 +1,4 @@
-# Iskay Pet Technical Challenge
+# IskayPet Technical Challenge
 
 ## Project Overview
 
