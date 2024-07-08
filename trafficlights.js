@@ -1,3 +1,6 @@
+// For use in https://www.codewars.com/kata/5d230e119dd9860028167fa5
+// Not finished, this passes the sample test but only gets through around 40% of the 100 or so automatic tests after clicking on Attempt.
+
 function trafficLights(road, n) {
   const result = [];
   let roadArray = road.split('');
